@@ -1,0 +1,101 @@
+.healthiconsui-user-profile {
+    position: absolute;
+    top: 116px;
+    left: 52px;
+    width: 248px;
+    height: 225px;
+    overflow: hidden;
+  }
+  .usurio-child {
+    position: absolute;
+    top: 63px;
+    left: 27px;
+    border-radius: var(--br-xl);
+    background-color: var(--color-gray-100);
+    width: 1204px;
+    height: 753px;
+  }
+  .usurio-item {
+    position: absolute;
+    top: 315px;
+    left: 271px;
+    width: 29px;
+    height: 26px;
+  }
+  .usurio-inner,
+  .vector-icon {
+    position: absolute;
+    top: 318px;
+    left: 674px;
+    width: 20.01px;
+    height: 20.01px;
+  }
+  .usurio-inner {
+    top: 275px;
+    left: 332px;
+    background-color: var(--color-white);
+    width: 366px;
+    height: 66px;
+  }
+  .rectangle-div {
+    position: absolute;
+    top: 315px;
+    left: 669px;
+    background-color: #1e1e1e;
+    width: 29px;
+    height: 26px;
+  }
+  .rectangle-icon,
+  .usurio-child1 {
+    position: absolute;
+    left: 48px;
+    border-radius: var(--br-xl);
+    width: 1144px;
+  }
+  .usurio-child1 {
+    top: 418px;
+    background-color: var(--color-white);
+    height: 165px;
+  }
+  .rectangle-icon {
+    top: 608px;
+    height: 190px;
+  }
+  .vector-icon2 {
+    position: absolute;
+    top: 318px;
+    left: 276px;
+    width: 20.01px;
+    height: 20.01px;
+  }
+  .sobre-mim {
+    margin: 0;
+  }
+  .nome,
+  .sobre-mim-container {
+    position: absolute;
+    top: 436px;
+    left: 70px;
+    display: inline-block;
+    width: 861px;
+    height: 122px;
+  }
+  .nome {
+    top: 282px;
+    left: 340px;
+    font-size: 40px;
+    width: 300px;
+    height: 46px;
+  }
+  .usurio {
+    position: relative;
+    background: linear-gradient(112.65deg, #0026ff, #00fefe);
+    width: 100%;
+    height: 832px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-xl);
+    color: var(--color-black);
+    font-family: var(--font-inter);
+  }
+  
