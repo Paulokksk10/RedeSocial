@@ -1,48 +1,43 @@
 package com.zuiter.controller;
 
-import com.zuiter.model.Usuario;
-import com.zuiter.repository.UsuarioRepository;
-
-import jakarta.annotation.security.PermitAll;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.zuiter.model.Postagem;
+import com.zuiter.model.Usuario;
+import com.zuiter.services.UsuarioService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/usuario")
 public class UsuarioController {
+
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioService usuarioService;
 
-    @GetMapping
-    @PermitAll
-    public List<Usuario> listarUsuarios() {
-        return usuarioRepository.findAll();
-    }
-    
-    @GetMapping("/{id}")
-    public Usuario buscarUsuarioPorId(@PathVariable Long id) {
-        return usuarioRepository.findById(id).orElse(null);
-    }
-
+    // Endpoint para criar um novo usuário
     @PostMapping
     public Usuario criarUsuario(@RequestBody Usuario usuario) {
-        return usuarioRepository.save(usuario);
+        return usuarioService.criarUsuario(usuario);
     }
 
-    @PutMapping("/{id}")
-    public Usuario atualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
-        if (usuarioRepository.existsById(id)) {
-            usuario.setId(id);
-            return usuarioRepository.save(usuario);
-        }
-        return null; 
+    // Endpoint para buscar um usuário pelo ID
+    @GetMapping("/{id}")
+    public Usuario buscarUsuarioPorId(@PathVariable Long id) {
+        return usuarioService.buscarUsuarioPorId(id);
     }
 
-    @DeleteMapping("/{id}")
-    public void excluirUsuario(@PathVariable Long id) {
-        usuarioRepository.deleteById(id);
+    // Endpoint para listar todos os amigos de um usuário
+    @GetMapping("/{id}/amigos")
+    public List<Usuario> listarAmigosDeUsuario(@PathVariable Long id) {
+        return usuarioService.listarAmigosDeUsuario(id);
+    }
+
+    // Endpoint para listar todas as postagens de um usuário
+    @GetMapping("/{id}/postagens")
+    public List<Postagem> listarPostagensDeUsuario(@PathVariable Long id) {
+        return usuarioService.listarPostagensDeUsuario(id);
     }
 }
+
