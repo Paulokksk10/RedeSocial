@@ -1,0 +1,71 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: linear-gradient(to bottom, #0026FF, #00FEFE);
+  background-attachment: fixed; /* Fixa o gradiente no lugar */
+}
+.container{
+  background-color: rgba(0, 0, 0, 0.09); /* Fundo vermelho com 50% de opacidade */
+  padding: 15px;
+  margin: 20px;
+  height: 97vh;
+  border-radius: 10px;
+}
+
+.edits{
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
+
+}
+.relativo{
+  position: relative;
+}
+.icone-perfil{
+  grid-row: 1;
+  grid-column: 1;
+  background-color: white;
+  width: 210px; 
+  height: 200px;
+  position: relative;
+  padding-left: 5px;
+}
+.edit-perfil{
+  grid-row: 1;
+  grid-column: 2/3;
+  padding: 10px;
+  background-color: white;
+  height: 20%;
+  width: 20%;
+  position: absolute;
+  bottom: 0;
+}
+.edit{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+.edit2{
+  float: right;
+}
+
+.bio{
+  background-color: white;
+  grid-row: 2;
+  grid-column: 1/3;
+  padding: 10px;
+  border-radius: 10px;
+}
+.pubs{
+  background-color: white;
+  grid-row: 3;
+  grid-column: 1/3;
+  padding: 10px;
+  border-radius: 10px;
+}
