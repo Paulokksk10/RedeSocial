@@ -67,7 +67,11 @@ A aplicação de rede social é um sistema que permite que os usuários se conec
 
 - Usuário 2 (referenciando a entidade "Usuário").
 
- 
+# Diagrama
+
+![redeSocial](https://github.com/Paulokksk10/RedeSocial/assets/109988092/dd23dbf9-f1ab-49d4-9a19-99e4c125551f)
+
+
 > Essas entidades e relacionamentos formam a estrutura básica de uma rede social, permitindo que os usuários se conectem, compartilhem postagens, expressem curtidas e estabeleçam amizades. A aplicação da rede social proporciona uma plataforma interativa para comunicação e compartilhamento de conteúdo entre seus membros.
 
 ```
