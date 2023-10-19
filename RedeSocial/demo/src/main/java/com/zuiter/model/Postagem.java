@@ -19,17 +19,15 @@ public class Postagem {
 
     private List<Usuario> autorPublicacao;
     private List<Curtida> listaCurtidas;
-    private List<Comentarios> listaComentarios;
     public Postagem() {
     }
     public Postagem(String conteudoPublicacao, Date dataPublicacao, String localizacao, List<Usuario> autorPublicacao,
-            List<Curtida> listaCurtidas, List<Comentarios> listaComentarios) {
+            List<Curtida> listaCurtidas) {
         this.conteudoPublicacao = conteudoPublicacao;
         this.dataPublicacao = dataPublicacao;
         this.localizacao = localizacao;
         this.autorPublicacao = autorPublicacao;
         this.listaCurtidas = listaCurtidas;
-        this.listaComentarios = listaComentarios;
     }
     public Long getId() {
         return id;
@@ -67,17 +65,11 @@ public class Postagem {
     public void setListaCurtidas(List<Curtida> listaCurtidas) {
         this.listaCurtidas = listaCurtidas;
     }
-    public List<Comentarios> getListaComentarios() {
-        return listaComentarios;
-    }
-    public void setListaComentarios(List<Comentarios> listaComentarios) {
-        this.listaComentarios = listaComentarios;
-    }
     @Override
     public String toString() {
         return "Postagem [id=" + id + ", conteudoPublicacao=" + conteudoPublicacao + ", dataPublicacao="
                 + dataPublicacao + ", localizacao=" + localizacao + ", autorPublicacao=" + autorPublicacao
-                + ", listaCurtidas=" + listaCurtidas + ", listaComentarios=" + listaComentarios + "]";
+                + ", listaCurtidas=" + listaCurtidas  + "]";
     }
     
     
