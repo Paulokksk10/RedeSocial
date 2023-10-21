@@ -1,27 +1,24 @@
 package com.zuiter.services;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Service;
-
+import io.jsonwebtoken.Jwts;
 import java.util.Date;
+
 
 @Service
 public class AuthService {
 
-    private static final String SECRET_KEY = "seu_segredo_secreto"; // Substitua isso por uma chave secreta real.
-
-    public String gerarTokenDeAutenticacao(String username) {
-        Date dataAtual = new Date();
-        Date dataExpiracao = new Date(dataAtual.getTime() + 86400000); // Token expira em 24 horas
-
+    // Método para gerar um token de autenticação com base no nome de usuário
+    public String gerarTokenDeAutenticacao(String email) {
+        long tempoDeValidade = 24 * 60 * 60 * 1000; // Token expira em 24 horas
+        
         String token = Jwts.builder()
-                .setSubject(username)
-                .setIssuedAt(dataAtual)
-                .setExpiration(dataExpiracao)
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+                .subject(email) // Defina o assunto do JWT
+                .issuedAt(new Date()) // Data de emissão do token
+                .expiration(new Date(System.currentTimeMillis() + tempoDeValidade)) // Define a data de expiração do JWT// Data de expiração do token
                 .compact();
-
         return token;
     }
+
+    // Outros métodos para autenticar usuários, verificar credenciais, etc.
 }

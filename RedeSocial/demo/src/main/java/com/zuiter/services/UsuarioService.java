@@ -14,8 +14,7 @@ import java.util.Optional;
 @Service
 public class UsuarioService {
 
-    private final UsuarioRepository usuarioRepository;
-
+    private final UsuarioRepository usuarioRepository;   
     @Autowired
     public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
@@ -46,6 +45,24 @@ public class UsuarioService {
     public List<Postagem> listarPostagensDeUsuario(Long idUsuario) {
         Usuario usuario = buscarUsuarioPorId(idUsuario);
         return usuario.getPostagens();
+    }
+
+    public boolean validarCredenciais(String email, String password) {
+        // Primeiro, busque o usuário pelo email no banco de dados
+        Usuario usuario = usuarioRepository.getUsuarioByEmail(email);
+
+        // Verifique se o usuário com o email fornecido foi encontrado
+        if (usuario == null) {
+            return false; // Usuário não encontrado
+        }
+
+        // Agora, verifique se a senha fornecida corresponde à senha armazenada no banco de dados.
+        // Este é um exemplo simples, recomenda-se usar uma solução de criptografia adequada para senhas.
+        if (usuario.getPassword().equals(password)) {
+            return true; // Senha válida
+        }
+
+        return false; // Senha incorreta
     }
 }
 

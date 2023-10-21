@@ -1,28 +1,29 @@
 package com.zuiter.controller;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
-import com.zuiter.services.AuthService;
-import com.zuiter.services.UsuarioService;
-import com.zuiter.services.dto.LoginRequest;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@RestController
-@RequestMapping("/login")
+@Controller
+@RequestMapping("/")
 public class LoginController {
+    SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
 
-    @Autowired
-    private AuthService authService;
 
-    @PostMapping
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
-        if (UsuarioService.validarCredenciais(loginRequest.getUsername(), loginRequest.getPassword())) {
-            // Gere um token de autenticação (JWT) e retorne-o
-            String token = authService.gerarTokenDeAutenticacao(loginRequest.getUsername());
-            return ResponseEntity.ok("Token: " + token);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
-        }
+    @GetMapping("/login")
+    public String loadLoginForm(){
+        return "login";
+    }
+
+    @GetMapping("/logout")
+    public String performLogout(Authentication authentication, HttpServletRequest request, HttpServletResponse response) {
+        this.logoutHandler.logout(request, response, authentication);
+        return "redirect:/";
     }
 }
