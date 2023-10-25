@@ -12,6 +12,39 @@ A aplicação de rede social é um sistema que permite que os usuários se conec
 [Figma](https://www.figma.com/file/dTqYSFX5mb93YpqZgrjOEq/Rede-Social?type=design&node-id=2%3A8&mode=design&t=0GyzlOC59ztHaPMT-1&authuser=0)
 
 
+# Database
+~~~sql
+-- Criando a tabela "amizade"
+CREATE TABLE amizade (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    dataAmizade DATE
+);
+
+-- Criando a tabela "usuario"
+CREATE TABLE usuario (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    dataNascimento DATE,
+    email VARCHAR(255),
+    fotoPerfil VARCHAR(255),
+    biografia VARCHAR(255),
+    password VARCHAR(15) NOT NULL
+);
+
+-- Criando a tabela "postagem"
+CREATE TABLE postagem (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    conteudo VARCHAR(255),
+    dataPublicacao DATE
+);
+
+-- Criando a tabela "curtida"
+CREATE TABLE curtida (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    dataCurtida DATE
+);
+
+~~~
+
 
 # 1. Entidade Rede Social:
 
