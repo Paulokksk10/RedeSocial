@@ -16,13 +16,13 @@ A aplicação de rede social é um sistema que permite que os usuários se conec
 ~~~sql
 -- Criando a tabela "amizade"
 CREATE TABLE amizade (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
     dataAmizade DATE
 );
 
 -- Criando a tabela "usuario"
 CREATE TABLE usuario (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
     dataNascimento DATE,
     email VARCHAR(255),
     fotoPerfil VARCHAR(255),
@@ -32,14 +32,14 @@ CREATE TABLE usuario (
 
 -- Criando a tabela "postagem"
 CREATE TABLE postagem (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
     conteudo VARCHAR(255),
     dataPublicacao DATE
 );
 
 -- Criando a tabela "curtida"
 CREATE TABLE curtida (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
     dataCurtida DATE
 );
 
