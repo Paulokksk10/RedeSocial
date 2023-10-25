@@ -12,7 +12,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
-public class CustomSecurityConfiguration {
+public class SecurityConfig {
     
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -21,12 +21,18 @@ public class CustomSecurityConfiguration {
     
     @Bean
     public UserDetailsService userDetailsService(){
+        System.out.println("#################iniciando user Details");
         PasswordEncoder encoder = passwordEncoder();
         UserDetails admin = User.builder()
-            .username("admin")
-            .password(encoder.encode("admin")) // Hash seguro da senha
+            .username("user")
+            .password(encoder.encode("user")) // Hash seguro da senha
             .roles("USER", "ADMIN")
             .build();
         return new InMemoryUserDetailsManager(admin);
     }
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+        http.csrf(AbstractHttpConfigurer::disable);
+        return http.build();
+    } 
 }
